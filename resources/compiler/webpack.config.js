@@ -1,14 +1,27 @@
-const path = require('path');
-const webpack = require('webpack');
 
-const MiniCssExtractWebpackPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const NonJsEntryCleanupPlugin = require('./non-js-entry-cleanup-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+module.exports = (options) => {
 
-const { context, entry, devtool, outputFolder, publicFolder } = require('./config');
+    const { dev } = options;
+    const hmr = HMR.getClient();
 
-const HMR = require('./hmr');
-const getPublicPath = require('./publicPath');
+    return {
+      /* All keys and values are below. */
+      mode: dev ? 'development' : 'production',
 
+      devtool: dev ? devtool : false,
+
+      context: path.resolve(context),
+
+      entry: {
+        'styles/main': dev ? [hmr, entry.styles] : entry.styles,
+        'scripts/main': dev ? [hmr, entry.scripts] : entry.scripts
+      },
+
+      output: {
+        path: path.resolve(outputFolder),
+        publicPath: getPublicPath(publicFolder),
+        filename: '[name].js'
+      },
+
+    };
+  }
