@@ -1,0 +1,12 @@
+@import "~bootstrap/scss/bootstrap";
+
+@mixin background($imgpath,$position:0 0,$repeat: no-repeat) {
+    background: {
+        image: url($imgpath);
+        position: $position;
+        repeat: $repeat;
+    }
+}
+.page-title {
+    @include background('/assets/img/how-can-we-help-you.jpg');
+}

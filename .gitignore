@@ -1,1 +1,3 @@
-resources/node_modules/
+/* ignore build and node_modules folders */
+node_modules/
+build/
