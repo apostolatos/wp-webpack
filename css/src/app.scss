@@ -1,5 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
 
+@import '~font-awesome/css/font-awesome.css';
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:100,300,400');
+
 @mixin background($imgpath,$position:0 0,$repeat: no-repeat) {
     background: {
         image: url($imgpath);
@@ -8,5 +12,9 @@
     }
 }
 .page-title {
-    @include background('/assets/img/how-can-we-help-you.jpg');
+    @include background('../../assets/img/how-can-we-help-you.jpg');
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
 }

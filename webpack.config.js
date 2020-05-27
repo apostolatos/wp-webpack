@@ -9,6 +9,8 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
   entry: [
     './js/src/app.js', 
@@ -40,9 +42,37 @@ module.exports = {
           'css-loader', 
           'sass-loader'
         ]
-      }
-      
-
+      },
+      // load fonts
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              useRelativePaths: true,
+              outputPath: 'assets/fonts/',
+              publicPath: '/wp-content/themes/epignosis/assets/fonts',
+            }
+          }
+        ]
+      },
+      // load images
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              context: path.resolve(__dirname, 'src/'),
+              useRelativePaths: true,
+              outputPath: 'images',
+              publicPath: '/wp-content/themes/epignosis/images',
+            },
+          },
+        ],
+      },
     ]
   },
   plugins: [
@@ -59,7 +89,16 @@ module.exports = {
         parallel: true
       }),
       // enable the css minification plugin
-      //new CleanWebpackPlugin(['./js/build/*','./css/build/*']),
+      new CleanWebpackPlugin(
+        {
+          cleanStaleWebpackAssets: false,
+          // default: []
+          cleanAfterEveryBuildPatterns: [
+            './js/build/*',
+            './css/build/*'
+          ]
+        }
+      ),
     ]
   }
 };
