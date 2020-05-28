@@ -9508,3 +9508,6 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   font-family: 'Poppins', sans-serif; }
 
+.ls-2 {
+  letter-spacing: 2px; }
+

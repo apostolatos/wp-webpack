@@ -4,7 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:100,300,400');
 
-@mixin background($imgpath,$position:0 0,$repeat: no-repeat) {
+@mixin background($imgpath, $position:0 0, $repeat: no-repeat) {
     background: {
         image: url($imgpath);
         position: $position;
@@ -17,4 +17,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+}
+
+.ls-2 {
+    letter-spacing: 2px;
 }
