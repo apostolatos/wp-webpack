@@ -18,19 +18,23 @@ module.exports = {
   ],
   // for the JavaScript build
   output: {
-    filename: './js/build/app.min.[hash].js',
+    //filename: './js/build/app.min.[hash].js',
+    filename: './js/build/app.min.js',
     path: path.resolve(__dirname)
   },
   module: {
     rules: [
       // perform js babelization on all .js files
       {
-        test: /\.js$/,
+        test: /\.js|jsx$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['babel-preset-env']
+            presets: [
+              '@babel/preset-env', 
+              '@babel/preset-react'
+            ]
          }
         }
       },
@@ -52,8 +56,8 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               useRelativePaths: true,
-              outputPath: 'assets/fonts/',
-              publicPath: '/wp-content/themes/epignosis/assets/fonts',
+              outputPath: './assets/fonts/',
+              publicPath: '../../assets/fonts',
             }
           }
         ]
@@ -68,7 +72,7 @@ module.exports = {
               context: path.resolve(__dirname, 'src/'),
               useRelativePaths: true,
               outputPath: 'images',
-              publicPath: '/wp-content/themes/epignosis/images',
+              publicPath: '../../images',
             },
           },
         ],

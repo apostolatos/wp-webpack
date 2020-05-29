@@ -7,6 +7,13 @@
                 <div class="col-md-3">
                     <h6 class="font-weight-bold mb-3 text-uppercase">Company</h6>
                     <p class="d-block mb-3 text-muted">Lorem Ipsum</p>
+                    <p>
+                        <i class="fa fa-twitter mr-2 text-muted"></i>
+                        <i class="fa fa-facebook mr-2 text-muted"></i>
+                        <i class="fa fa-instagram mr-2 text-muted"></i>
+                        <i class="fa fa-pinterest mr-2 text-muted"></i>
+                        <i class="fa fa-vimeo mr-2 text-muted"></i>
+                    </p>
                 </div>
                 <div class="col-md-2">
                     <h6 class="font-weight-bold mb-3 text-uppercase">Features</h6>
