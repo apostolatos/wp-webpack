@@ -40,7 +40,7 @@ module.exports = {
       },
       // compile all .scss files to plain old css
       {
-        test: /\.(sass|scss)$/,
+        test: /\.s?[ac]ss$/,
         use: [
           MiniCssExtractPlugin.loader, 
           'css-loader', 

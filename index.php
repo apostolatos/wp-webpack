@@ -6,9 +6,9 @@ get_header();
 ?>
 
 <div class="jumbotron text-center page-title">
-    <div class="container">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
         <p class="text-white">Home - Contact</p>
-        <h1 class="jumbotron-heading text-white">Album example</h1>
+        <h1 class="jumbotron-heading text-white font-weight-bold">How can we help you today</h1>
     </div>
 </div>
 
@@ -16,7 +16,15 @@ get_header();
 <div class="album py-5">
     <div class="pb-5">
         <div class="container">
-            <?php query_posts('cat=2&showposts=6');  ?>
+            <?php query_posts([
+                    'category_name' => 'tips',
+                    'numberposts' => 6,
+                    'orderby' => 'post_date',
+                    'order' => 'DESC',
+                    'post_type' => 'post',
+                    'post_status' => 'publish'
+                ]);
+            ?>
             <?php if (have_posts()) { ?>
                 <h4 class="mb-5 font-weight-bold">Tips for our blog</h4>
                 <div class="row">

@@ -20,12 +20,13 @@ contactForm.addEventListener('submit', function(event) {
     
     const url = '/wordpress/wp-admin/admin-ajax.php';
   
-    var firstname =  document.getElementById('firstname').value;
-    var lastname = document.getElementById('lastname').value;
-    var email = document.getElementById('email').value;
-    var message = document.getElementById('message').value;
-    var data = encodeURI({
+    const firstname =  document.getElementById('firstname').value;
+    const lastname = document.getElementById('lastname').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const data = encodeURI({
         'firstname': firstname, 
+        'lastname': lastname, 
         'email': email, 
         'message': message, 
         'action': 'contact_form'
@@ -36,7 +37,9 @@ contactForm.addEventListener('submit', function(event) {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         },
-        body: encodeURI({'action': 'contact_form'}),
+        body: encodeURI({
+            'action': 'contact_form'
+        }),
     })
     
     .then(response => response.json())
