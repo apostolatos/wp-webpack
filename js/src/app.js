@@ -20,6 +20,10 @@ contactForm.addEventListener('submit', function(event) {
     
     const url = '/wordpress/wp-admin/admin-ajax.php';
   
+    var firstname =  document.getElementById('firstname').value;
+    var lastname = document.getElementById('lastname').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
     var data = encodeURI({
         'firstname': firstname, 
         'email': email, 
