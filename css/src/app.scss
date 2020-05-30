@@ -13,25 +13,71 @@
     }
 }
 
-.page-title {
-    @include background('../../assets/img/how-can-we-help-you.jpg');
-    min-height: 400px;
+@mixin gradientAnimation( $start, $end, $transTime ){
+    background-size: 100%;
+    opacity: 0.4;
+    background-image: linear-gradient($start, $end);
+    position: absolute;
+    z-index: 1;
+    &:before {
+        background-image: linear-gradient($end, $start);
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        opacity: 0;
+        width: 100%;
+        z-index: -100;
+        transition: opacity $transTime;
+    }
 }
 
+.relative {
+    position: relative;
+    z-index: 2;
+}
+
+.page-title {
+    @include background('../../assets/img/how-can-we-help-you.jpg');
+    position: relative;
+}
+
+/*
+ * Apply Fonts
+ */
 $font-stack: 'Poppins', sans-serif;
 
 body {
     font: 100% $font-stack;
 }
 
+/*
+ * Content
+ */
 .card.post {
-    min-height: 600px;
+    min-height: 650px;
 }
 
 .ls-2 {
     letter-spacing: 3px;
 }
 
+/*
+ * Remove Image Borders
+ */
 .wp-post-image {
     border-radius: 0.25rem 0.25rem 0 0;
+}
+
+/*
+ * Gradient Overlay
+ */
+.overlay {
+    @include gradientAnimation(black, black, .2s);
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
 }

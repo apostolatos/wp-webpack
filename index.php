@@ -5,14 +5,15 @@
 get_header();
 ?>
 
-<div class="jumbotron text-center page-title">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
+<!-- body goes here -->
+<div class="jumbotron text-center page-title rounded-0">
+    <div class="overlay"></div>
+    <div class="col-md-8 p-lg-4 mx-auto my-4 relative">
         <p class="text-white">Home - Contact</p>
-        <h1 class="jumbotron-heading text-white font-weight-bold">How can we help you today</h1>
+        <h1 class="jumbotron-heading text-white font-weight-bold">How can we help you today?</h1>
     </div>
 </div>
 
-<!-- body goes here -->
 <div class="album py-5">
     <div class="pb-5">
         <div class="container">

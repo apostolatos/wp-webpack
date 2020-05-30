@@ -9500,22 +9500,62 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+.relative {
+  position: relative;
+  z-index: 2; }
+
 .page-title {
   background-image: url(../../images/ac6de10e3b6a821a4b01c01ee54e5b9c.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 400px; }
+  position: relative; }
 
+/*
+ * Apply Fonts
+ */
 body {
   font: 100% "Poppins", sans-serif; }
 
+/*
+ * Content
+ */
 .card.post {
-  min-height: 600px; }
+  min-height: 650px; }
 
 .ls-2 {
   letter-spacing: 3px; }
 
+/*
+ * Remove Image Borders
+ */
 .wp-post-image {
   border-radius: 0.25rem 0.25rem 0 0; }
+
+/*
+ * Gradient Overlay
+ */
+.overlay {
+  background-size: 100%;
+  opacity: 0.4;
+  background-image: linear-gradient(black, black);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; }
+  .overlay:before {
+    background-image: linear-gradient(black, black);
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -100;
+    transition: opacity 0.2s; }
 

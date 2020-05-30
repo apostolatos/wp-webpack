@@ -18,7 +18,7 @@ contactForm.addEventListener('submit', function(event) {
       return result;
     };
     
-    const url = '/wordpress/wp-admin/admin-ajax.php';
+    const url = window.location.href + '/wp-admin/admin-ajax.php';
   
     const firstname =  document.getElementById('firstname').value;
     const lastname = document.getElementById('lastname').value;

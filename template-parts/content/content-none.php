@@ -12,7 +12,6 @@
 ?>
 <div class="col-md-6">
 	<h1 class="mt-5"><?php _e( 'Nothing Found', 'epignosis' ); ?></h1>
-	<p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
 	<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 

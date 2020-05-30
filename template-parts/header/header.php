@@ -1,12 +1,23 @@
+<?php
+/**
+ * Displays header site navigation
+ *
+ */
+?>
 <nav class="navbar navbar-expand-md navbar-light bg-light py-3" aria-label="<?php esc_attr_e( 'Top Menu', 'epignosis' ); ?>">
+    
     <div class="container d-flex justify-content-between">
-        <a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php echo get_bloginfo('template_url') ?>/assets/img/logo.png"/></a>
+        <a class="navbar-brand" href="<?php echo home_url(); ?>">
+            <img src="<?php echo get_bloginfo('template_url') ?>/assets/img/logo.png" rel="home" />
+        </a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
 
-            <?php
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <?php if ( has_nav_menu( 'top-menu' ) ) : ?>
+            <?php   
                 wp_nav_menu(
                     array(
                         'theme_location' => 'top-menu',
@@ -18,21 +29,10 @@
                     )
                 );
 			?>
+            <?php endif; ?>
 
-            <!--
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link font-weight-bold" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="#">Company</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="#">About Us</a>
-                </li>
-            </ul>
-            -->
             <button class="btn btn-primary my-2 ml-3 my-sm-0 ls-2 text-uppercase" type="button">Register</button>
         </div>
     </div>
+
 </nav>
