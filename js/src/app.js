@@ -7,14 +7,16 @@ contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const encodeURI = function(obj) {
-      var result = '';
-      var splitter = '';
-      if (typeof obj === 'object') {
+        var result = '';
+        var splitter = '';
+        
+        if (typeof obj === 'object') {
         Object.keys(obj).forEach(function(key) {
             result += splitter + key + '=' + encodeURIComponent(obj[key]);
             splitter = '&';
         });
       }
+
       return result;
     };
     
@@ -43,7 +45,6 @@ contactForm.addEventListener('submit', function(event) {
     })
     
     .then(response => response.json())
-    
     .then(data => {
         let response = document.getElementById('response');
         response.innerHTML = '';

@@ -16,7 +16,7 @@
 <?php wp_body_open(); ?>
 
 <header>
-	<?php get_template_part( 'template-parts/header/header' ); ?>
+	<?php get_template_part( 'template-parts/header/nav' ); ?>
 </header>
 
 <main role="main">

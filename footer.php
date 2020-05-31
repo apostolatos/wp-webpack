@@ -61,9 +61,9 @@
             </div>
         </div>
     </div>
-    <div class="bg-dark py-3">
-        <div class="container">
-            <span class="text-white font-weight-normal">© Company 2017-2018</span>
+    <div class="bg-dark py-4">
+        <div class="container text-center">
+            <span class="text-white text-center text-light font-weight-normal">© <?php echo date('Y') ?> Company. All rights reserved.</span>
         </div>
     </div>
 </footer>

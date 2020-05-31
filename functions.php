@@ -4,6 +4,15 @@
  *
  */
 
+ /*
+  * simply use this where ever you want to display your title with limited words
+  */
+add_filter('the_title', 'wordpress_title');
+
+function wordpress_title($title) {
+  return wp_trim_words($title, 15, '..');
+}
+
 /*
  * Enqueue script for custom customize control.
  * Register webpack stylesheet and js with theme

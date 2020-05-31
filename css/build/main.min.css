@@ -9523,8 +9523,14 @@ body {
 .card.post {
   min-height: 650px; }
 
+.ls-1 {
+  letter-spacing: 1px; }
+
 .ls-2 {
   letter-spacing: 3px; }
+
+.br-05 {
+  border-radius: 0.5rem !important; }
 
 /*
  * Remove Image Borders

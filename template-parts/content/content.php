@@ -20,13 +20,10 @@
             </p>
 
             <?php
-                if ( is_sticky() && is_home() && ! is_paged() ) {
-                    printf( '<span class="sticky-post">%s</span>', _x( 'Featured', 'post', 'epignosis' ) );
-                }
                 if ( is_singular() ) :
                     the_title( '<h5 class="card-title">', '</h5>' );
                 else :
-                    the_title( sprintf( '<h5 class="card-title font-weight-bold mb-3"><a class="text-dark" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h5>' );
+                    the_title( sprintf( '<h5 class="card-title font-weight-bold mb-3"><a class="text-dark" href="%s">', esc_url( get_permalink() ) ), '</a></h5>' );
                 endif;
             ?>
 

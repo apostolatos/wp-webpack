@@ -17,21 +17,19 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <?php if ( has_nav_menu( 'top-menu' ) ) : ?>
-            <?php   
+            <?php
                 wp_nav_menu(
                     array(
                         'theme_location' => 'top-menu',
                         'menu_class'     => 'navbar-nav ml-auto',
-                        'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'add_li_class'  => 'nav-item',
-                        'container' => false ,
-                        'link_class'   => 'nav-link m-2 font-weight-bold'
+                        'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul><button class="btn btn-primary my-2 ml-3 my-sm-0 ls-2 br-05 text-uppercase" type="button">Register</button>',
+                        'add_li_class'   => 'nav-item',
+                        'container'      => false ,
+                        'link_class'     => 'nav-link m-2 font-weight-bold',
                     )
                 );
 			?>
             <?php endif; ?>
-
-            <button class="btn btn-primary my-2 ml-3 my-sm-0 ls-2 text-uppercase" type="button">Register</button>
         </div>
     </div>
 
