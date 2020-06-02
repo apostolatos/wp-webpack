@@ -110,6 +110,34 @@ register_nav_menus(
 
 add_theme_support( 'menus' );
 
+/**
+ * Get Tips.
+ * The simple way - return all the posts in JSON format and loop through them in JavaScript
+ * 
+ */
+function get_ajax_posts() {
+    // Query Arguments
+    $args = [
+        'category_name' => 'tips',
+        'numberposts'   => 6,
+        'orderby'       => 'post_date',
+        'order'         => 'DESC',
+        'post_type'     => 'post',
+        'post_status'   => 'publish'
+    ];
+
+    // The Query
+    $ajaxposts = get_posts( $args ); // changed to get_posts from wp_query, because `get_posts` returns an array
+
+    echo json_encode( $ajaxposts );
+
+    wp_die();
+}
+
+// Fire AJAX action for both logged in and non-logged in users
+add_action('wp_ajax_get_ajax_posts', 'get_ajax_posts');
+add_action('wp_ajax_nopriv_get_ajax_posts', 'get_ajax_posts');
+
 /*
  * Filters the CSS classes applied to a menu item’s list item element.
  * 
